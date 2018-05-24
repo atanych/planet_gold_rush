@@ -14,3 +14,4 @@ Handled 1000 requests
 1.527002s
 ```
 * Before production we have to replace inline queue adapter with sidekiq/resque
+* This solution does not support to scale the consumer as is. But we might use more redis keys.

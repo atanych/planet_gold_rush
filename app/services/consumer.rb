@@ -24,6 +24,7 @@ class Consumer
     if batch_ready?(batch_events)
       dispatch(batch_events)
     end
+
     sleep TIMEOUT
   end
 
