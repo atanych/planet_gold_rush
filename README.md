@@ -11,7 +11,7 @@
 lrange:    0.000000   0.000000   0.000000 (  0.000278)
 llen:      0.000000   0.000000   0.000000 (  0.000262)
 ```
-* Request limitations!!! 8 CPU, 16 memory: 1000 requests per 1.5sec (100 batch requests/1.5sec). Looks like we might achieve 1000 requests/sec, if we vertically scale CPU and memory.
+* Request limitations!!! 8 CPU, 16 memory: 1000 requests per 1.5sec (100 batch requests/1.5sec). Looks like we might handle 1000 requests/sec, if we vertically scale CPU and memory.
 `rake benchmark:handle_iteration`
 ```
 *** consumer#handle_iteration ***
