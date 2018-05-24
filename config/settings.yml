@@ -1,5 +1,5 @@
 event_list_key: event_list_key
 batch_size: 10
 backoff_duration: 10 # seconds
-external_service: 'http://127.0.0.1:3000/events'
+external_service: 'http://echo_server:80'
 

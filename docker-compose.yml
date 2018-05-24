@@ -1,0 +1,29 @@
+version: '3'
+services:
+  redis:
+    image: 'redis:4.0-alpine'
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+    links:
+      - redis
+  consumer:
+    build: .
+    command: bundle exec rake consumer:call
+    depends_on:
+      - web
+      - redis
+      - echo_server
+    links:
+      - echo_server
+  echo_server:
+    image: mendhak/http-https-echo
+    ports:
+        - "8081:80"
+        - "8443:443"
+
+
