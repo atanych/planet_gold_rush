@@ -1,10 +1,11 @@
 ## How to run
 1. `docker-compose up --build`
 2. curl -X POST http://127.0.0.1:3000/events\?event\=evt1
+3. `docker-compose exec web rspec` # tests
 
 ## Notes:
 * If we dont receive requests on `/events` during 1 minute, next request immediately triggers batch to external service
-* In consumer#handle_iteration we might use `llen` before, then `lrange`. But have a look at benchmark `rake benchmark:llen_vs_lrange`.
+* In consumer#handle_iteration we might use `llen` before, then `lrange`. But have a look at benchmark `docker-compose exec web rake benchmark:llen_vs_lrange`.
 ```
                user     system      total        real
 lrange:    0.000000   0.000000   0.000000 (  0.000278)
